@@ -1,11 +1,16 @@
 import random
 
 
+small = ''
+medium = ''
+large = ''
+
 def LCG(a, b, N):
 	# a ≡ b(mod N)
 	bitChain = '' 
-	t = 8 # Binary concatenation cycle size
+	t = 16 # Binary concatenation cycle size
 	k = 8 # Individual bitChain size
+	size = 128992
 
 	try:
 		parse = list(map(int,[a, b, N])) # Parsing Verification
@@ -17,13 +22,15 @@ def LCG(a, b, N):
 	
 	x = random.randrange(200)%N # Randomized initial value
 
-	for i in range(t): 
+	for i in range(int(size/t)): 
 		x = (a*x + b)%N 
-		binary = bin(x).replace('b','').zfill(k)
+		binary = bin(x).replace('b','').zfill(t)
 		bitChain += binary
 
 	return bitChain
 
-print(LCG(2,5,11))
-print(LCG(6,55,29))
-print(LCG(7,47,88))
+
+small = LCG(6,55,11)
+medium = LCG(612,5115,7212)
+large = LCG(6,55,150)
+

@@ -24,4 +24,6 @@ def img2bits(imgPath):
 
     return cadena
 
-print(img2bits('p1.jpg'))
+img = img2bits('p1.jpg')
+
+#128992

@@ -1,3 +1,5 @@
+import imgToBits as itb
+
 def lfsr(lonFinal, seed, taps):
     # Resultado y sr con la semilla inicial
     res = ''
@@ -18,5 +20,4 @@ def lfsr(lonFinal, seed, taps):
 
     return res
 
-resultado = lfsr(10, '11001001', (8,7,6,1))
-print('El resultado es', resultado)
+resultado = lfsr(len(itb.img), '11001001', (8,7,6,1))

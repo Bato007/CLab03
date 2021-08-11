@@ -1,5 +1,7 @@
 from random import randint
-
+import imgToBits as itb
+import LCG as lcg
+import lfsr as lfsr
 
 def wichmanhill(size):
   k = ''
@@ -16,6 +18,9 @@ def wichmanhill(size):
   return k
 
 
+lg = wichmanhill(len(itb.img))
+
+
 def xor(x1, xp):
   size = len(x1)
   if (size != len(xp)):
@@ -25,3 +30,9 @@ def xor(x1, xp):
   for i in range(size):
     xored += '0' if x1[i] == xp[i] else '1'
   return xored
+
+lg = xor(itb.img,lg) # wichman-hill Funcional
+lfrs = xor(itb.img,lfsr.resultado) # lfrs
+small = xor(itb.img,lcg.small) # small
+medium = xor(itb.img,lcg.medium) # medium
+large = xor(itb.img,lcg.large) # large
